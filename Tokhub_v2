@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazmaf TikTok Hub</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #f0f6ff;
+      --accent: #007bff;
+      --text: #0a0a0a;
+      --muted: #6b7280;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 28px auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--accent);
+    }
+
+    p.lead {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    #today-date {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #d0e3ff;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    a.btn:hover {
+      background: #0056b3;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #d0e3ff;
+      background: #fff;
+      color: var(--text);
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    button {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    button.primary:hover {
+      background: #0056b3;
+    }
+
+    #openOne {
+      background: #e8f0ff;
+      color: var(--accent);
+    }
+
+    #openOne:hover {
+      background: #d0e3ff;
+    }
+
+    #refresh {
+      background: var(--accent);
+      color: white;
+    }
+
+    #refresh:hover {
+      background: #0056b3;
+    }
+
+    small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid #d0e3ff;
+      padding-top: 20px;
+    }
+
+    ol {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Hazmaf TikTok Hub</h1>
+        <p class="lead">Your daily shortcut to breaking, AI, and funniest TikToks — no searching needed.</p>
+        <div id="today-date"></div>
+      </div>
+      <button id="refresh">🔁 Daily Refresh</button>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <label>Breaking & Trending News</label>
+        <div class="row" id="news-links">
+          <a class="btn" href="https://www.tiktok.com/@bbcnews" target="_blank">BBC News</a>
+          <a class="btn" href="https://www.tiktok.com/@cnn" target="_blank">CNN</a>
+          <a class="btn" href="https://www.tiktok.com/@reuters" target="_blank">Reuters</a>
+          <a class="btn" href="https://www.tiktok.com/@nyt" target="_blank">NY Times</a>
+          <a class="btn" href="https://www.tiktok.com/@aljazeeraenglish" target="_blank">Al Jazeera</a>
+          <a class="btn" href="https://www.tiktok.com/@skynews" target="_blank">Sky News</a>
+          <a class="btn" href="https://www.tiktok.com/@underthedesknews" target="_blank">UnderTheDesk</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>AI & Tech Creators</label>
+        <div class="row" id="tech-links">
+          <a class="btn" href="https://www.tiktok.com/@wired" target="_blank">WIRED</a>
+          <a class="btn" href="https://www.tiktok.com/@theverge" target="_blank">The Verge</a>
+          <a class="btn" href="https://www.tiktok.com/@techcrunch" target="_blank">TechCrunch</a>
+          <a class="btn" href="https://www.tiktok.com/@aitechhub" target="_blank">AI Tech Hub</a>
+          <a class="btn" href="https://www.tiktok.com/@aimindset" target="_blank">AI Mindset</a>
+          <a class="btn" href="https://www.tiktok.com/@lexfridman" target="_blank">Lex Fridman</a>
+          <a class="btn" href="https://www.tiktok.com/@twominutepapers" target="_blank">Two Minute Papers</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Funniest & Shocking Creators</label>
+        <div class="row" id="funny-links">
+          <a class="btn" href="https://www.tiktok.com/@comedycentral" target="_blank">Comedy Central</a>
+          <a class="btn" href="https://www.tiktok.com/@failarmy" target="_blank">FailArmy</a>
+          <a class="btn" href="https://www.tiktok.com/@kallmekris" target="_blank">KallMeKris</a>
+          <a class="btn" href="https://www.tiktok.com/@mrbeast" target="_blank">MrBeast</a>
+          <a class="btn" href="https://www.tiktok.com/@itsjojosiwa" target="_blank">JoJo Siwa</a>
+          <a class="btn" href="https://www.tiktok.com/@iamtabithabrown" target="_blank">Tabitha Brown</a>
+          <a class="btn" href="https://www.tiktok.com/@justmaiko" target="_blank">JustMaiko</a>
+        </div>
+      </div>
+
+      <div class="card full">
+        <label>Paste Today's TikTok Links</label>
+        <textarea id="links" placeholder="Paste up to 10 TikTok URLs here..."></textarea>
+        <div style="margin-top: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button class="primary" id="openAll">Open All Links</button>
+          <button id="openOne">Open First Only</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <strong>How to Save Time</strong>
+      <ol>
+        <li>Tap <strong>🔁 Daily Refresh</strong> to open 3 random TikToks (1 per category).</li>
+        <li>Copy URLs you like for later.</li>
+        <li>Paste them → Tap 'Open All' → Done 🎯</li>
+      </ol>
+      <p><small>Add this page to your home screen for one-tap daily access.</small></p>
+    </footer>
+  </div>
+
+  <script>
+    // Set dynamic date label
+    const dateElem = document.getElementById('today-date');
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const today = new Date();
+    dateElem.textContent = "Today's Picks – " + today.toLocaleDateString('en-US', options);
+
+    const categories = {
+      news: [
+        "https://www.tiktok.com/@bbcnews",
+        "https://www.tiktok.com/@cnn",
+        "https://www.tiktok.com/@reuters",
+        "https://www.tiktok.com/@nyt",
+        "https://www.tiktok.com/@aljazeeraenglish",
+        "https://www.tiktok.com/@skynews",
+        "https://www.tiktok.com/@underthedesknews"
+      ],
+      tech: [
+        "https://www.tiktok.com/@wired",
+        "https://www.tiktok.com/@theverge",
+        "https://www.tiktok.com/@techcrunch",
+        "https://www.tiktok.com/@aitechhub",
+        "https://www.tiktok.com/@aimindset",
+        "https://www.tiktok.com/@lexfridman",
+        "https://www.tiktok.com/@twominutepapers"
+      ],
+      funny: [
+        "https://www.tiktok.com/@comedycentral",
+        "https://www.tiktok.com/@failarmy",
+        "https://www.tiktok.com/@kallmekris",
+        "https://www.tiktok.com/@mrbeast",
+        "https://www.tiktok.com/@itsjojosiwa",
+        "https://www.tiktok.com/@iamtabithabrown",
+        "https://www.tiktok.com/@justmaiko"
+      ]
+    };
+
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    document.getElementById("refresh").addEventListener("click", function () {
+      const openList = [
+        getRandom(categories.news),
+        getRandom(categories.tech),
+        getRandom(categories.funny)
+      ];
+      openList.forEach(url => window.open(url, "_blank", "noopener,noreferrer"));
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      function splitLinks(text) {
+        return text.split(/[\s,]+/).map(u => u.trim()).filter(u => u.length > 0);
+      }
+
+      document.getElementById('openAll').addEventListener('click', function() {
+        const txt = document.getElementById('links').value;
+        const list = splitLinks(txt).slice(0, 10);
+        if (!list.length) {
+          alert('Paste at least one TikTok URL first.');
+          return;
+        }
+        list.forEach(url => window.open(url, '_blank', 'noopener,noreferrer'));
+      });
+
+      document.getElementById('openOne').addEventListener('click', function() {
+        const txt = document.getElementById('links').value;
+        const list = splitLinks(txt);
+        if (!list.length) {
+          alert('Paste a TikTok URL first.');
+          return;
+        }
+        window.open(list[0], '_blank', 'noopener,noreferrer');
+      });
+    });
+  </script>
+</body>
+</html>
